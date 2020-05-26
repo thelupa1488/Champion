@@ -104,7 +104,8 @@ void fixanims(C_BasePlayer* player) {
 		g_GlobalVars->frametime = frametime;
 	}
 }
-void ResolverLegit(C_BasePlayer* pl) {
+void ResolverLegit(C_BasePlayer* pl) 
+{
 	if (!pl->GetPlayerAnimState() || pl->m_vecVelocity().Length() > 0 || !g_Options.resolver)
 		return;
 
@@ -122,16 +123,19 @@ void __stdcall Hooks::hkSuppressLists(int a2, bool a3) {
 	static auto OnRenderStart_Return = Utils::PatternScan(GetModuleHandleA("client_panorama.dll"), "FF 50 40 8B 1D ? ? ? ?") + 0x3;
 	static auto FrameNetUpdateEnd_Return = Utils::PatternScan(GetModuleHandleA("client_panorama.dll"), "5F 5E 5D C2 04 00 83 3D ? ? ? ? ?");
 
-	if (g_LocalPlayer && g_LocalPlayer->IsAlive()) {
-		if (_ReturnAddress() == OnRenderStart_Return) {
-			
-
+	if (g_LocalPlayer && g_LocalPlayer->IsAlive()) 
+	{
+		if (_ReturnAddress() == OnRenderStart_Return) 
+		{
 			if (g_LocalPlayer->GetPlayerAnimState())
 				g_LocalPlayer->SetAbsAngles(QAngle(0.0f, g_LocalPlayer->GetPlayerAnimState()->m_flGoalFeetYaw, 0.0f));
+
 			//update_local_ghetto(g_LocalPlayer);
-				//Animation::Get().real_animation(sendpacket, nullptr);
+			//	Animation::Get().real_animation(sendpacket, nullptr);
+
 			//if(Globals::cmd)
 			//	entities::fetch_targets(Globals::cmd);
+
 			auto state = g_LocalPlayer->GetPlayerAnimState();
 			if(state)
 				if (g_LocalPlayer->m_vecVelocity().Length2D() < 3.f)
@@ -142,15 +146,15 @@ void __stdcall Hooks::hkSuppressLists(int a2, bool a3) {
 			
 			g_LocalPlayer->m_flFlashMaxAlpha() = g_Options.flash;
 			auto csm = g_CVar->FindVar("cl_csm_enabled");
-			if (g_Options.esp_optimise) {
-			
+			if (g_Options.esp_optimise) 
+			{		
 				csm->m_fnChangeCallbacks.m_Size = 0;
 				csm->SetValue(false);
 				if(disablePostProcessing)
-					*disablePostProcessing = true;
-						
+					*disablePostProcessing = true;				
 			}
-			else {
+			else 
+			{
 				csm->m_fnChangeCallbacks.m_Size = 0;
 				g_CVar->FindVar("cl_csm_enabled")->SetValue(true);
 				if (disablePostProcessing)
@@ -172,8 +176,8 @@ void __stdcall Hooks::hkSuppressLists(int a2, bool a3) {
 			//c_resolver::on_render_start();
 
 		}
-		else if (_ReturnAddress() == FrameNetUpdateEnd_Return) {
-
+		else if (_ReturnAddress() == FrameNetUpdateEnd_Return) 
+		{
 			Skins::OnFrameStageNotify(true);
 			//c_animation_system::Get().post_player_update();
 			
@@ -181,7 +185,8 @@ void __stdcall Hooks::hkSuppressLists(int a2, bool a3) {
 			for (int i = 1; i < g_EngineClient->GetMaxClients(); i++)
 			{
 				auto ent = (C_BasePlayer*)g_EntityList->GetClientEntity(i);
-				if (ent && ent->IsAlive() && !ent->IsDormant() && ent != g_LocalPlayer) {
+				if (ent && ent->IsAlive() && !ent->IsDormant() && ent != g_LocalPlayer) 
+				{
 					ResolverLegit(ent);
 					auto VarMap = reinterpret_cast<uintptr_t>(ent) + 36;
 					auto VarMapSize = *reinterpret_cast<int*>(VarMap + 20);
@@ -192,7 +197,8 @@ void __stdcall Hooks::hkSuppressLists(int a2, bool a3) {
 			}
 		}
 	}
-	if(!g_EngineClient->IsInGame()) {
+	if(!g_EngineClient->IsInGame()) 
+	{
 		changeName(true, "", 0.f);
 		g_Aimbot.Cleanup();
 	}

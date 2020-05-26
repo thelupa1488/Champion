@@ -1,0 +1,99 @@
+
+*.ipdb
+.vs/Champion Project/v16/.suo
+.vs/Champion Project/v16/Browse.VC.db
+.vs/Champion Project/v16/ipch/AutoPCH/26b2bcf46a6472c4/ANIMFIXED.ipch
+.vs/Champion Project/v16/ipch/AutoPCH/2b98ec5c4c874bee/SUPRESSLISTS.ipch
+.vs/Champion Project/v16/ipch/AutoPCH/43e4f2182e13b150/EMITSOUND.ipch
+.vs/Champion Project/v16/ipch/AutoPCH/5728b545cc2b143e/SUPRESSLISTS.ipch
+.vs/Champion Project/v16/ipch/AutoPCH/868c21db5e93d3a6/VISUALS.ipch
+.vs/Champion Project/v16/ipch/AutoPCH/89ad3577323d8356/HOOKS.ipch
+.vs/Champion Project/v16/ipch/AutoPCH/9796517108e0182c/CLIENTMODE.ipch
+.vs/Champion Project/v16/ipch/AutoPCH/a0333a7fc36854dc/CLIENTMODE.ipch
+.vs/Champion Project/v16/ipch/AutoPCH/a2ccad4a174a1f94/ANIMFIXED.ipch
+.vs/Champion Project/v16/ipch/AutoPCH/a33e1cfdd3d90f7d/AIMBOT.ipch
+.vs/Champion Project/v16/ipch/AutoPCH/ad7657843553d41e/IMGUI_WIDGETS.ipch
+.vs/Champion Project/v16/ipch/AutoPCH/bf2eec49badee2c1/CSGOSTRUCTS.ipch
+.vs/Champion Project/v16/ipch/AutoPCH/c7d69aa2c03cc195/CHAMS.ipch
+.vs/Champion Project/v16/ipch/AutoPCH/d7b3c179a514cfb1/CSGOSTRUCTS.ipch
+.vs/Champion Project/v16/ipch/AutoPCH/d9f015347ee3d4c7/MENU.ipch
+.vs/Champion Project/v16/ipch/AutoPCH/dd64ed7786a0b4f6/CONFIG.ipch
+.vs/Champion Project/v16/ipch/AutoPCH/e1a124c36d259f4d/SKINS.ipch
+.vs/Champion Project/v16/ipch/AutoPCH/f771ac89713c2681/MAIN.ipch
+build/Champion/Release/aimbot.obj
+build/Champion/Release/AnimationSystem.obj
+build/Champion/Release/animfixed.obj
+build/Champion/Release/Autoblock.obj
+build/Champion/Release/autowall.obj
+build/Champion/Release/backdrop.obj
+build/Champion/Release/backtrack.obj
+build/Champion/Release/bhop.obj
+build/Champion/Release/c_cs_player_.obj
+build/Champion/Release/Champion Project.log
+build/Champion/Release/Champion Project.vcxproj.FileListAbsolute.txt
+build/Champion/Release/champion.Build.CppClean.log
+build/Champion/Release/Champion.tlog/Champion.lastbuildstate
+build/Champion/Release/Champion.tlog/Champion.write.1u.tlog
+build/Champion/Release/Champion.tlog/CL.54800.write.1.tlog
+build/Champion/Release/Champion.tlog/CL.command.1.tlog
+build/Champion/Release/Champion.tlog/CL.read.1.tlog
+build/Champion/Release/Champion.tlog/link.command.1.tlog
+build/Champion/Release/Champion.tlog/link.read.1.tlog
+build/Champion/Release/Champion.tlog/link.write.1.tlog
+build/Champion/Release/chams.obj
+build/Champion/Release/characterset.obj
+build/Champion/Release/checksum_crc.obj
+build/Champion/Release/checksum_md5.obj
+build/Champion/Release/ClientMode.obj
+build/Champion/Release/Color.obj
+build/Champion/Release/config.obj
+build/Champion/Release/Convar.obj
+build/Champion/Release/csgostructs.obj
+build/Champion/Release/damageindicator.obj
+build/Champion/Release/Desync.obj
+build/Champion/Release/DirectHooks.obj
+build/Champion/Release/dll.obj
+build/Champion/Release/DME.obj
+build/Champion/Release/EmitSound.obj
+build/Champion/Release/entities.obj
+build/Champion/Release/glow.obj
+build/Champion/Release/grenade_prediction.obj
+build/Champion/Release/hooks.obj
+build/Champion/Release/humanbhop.obj
+build/Champion/Release/imgui.obj
+build/Champion/Release/imgui_draw.obj
+build/Champion/Release/imgui_impl_dx9.obj
+build/Champion/Release/imgui_impl_win32.obj
+build/Champion/Release/imgui_widgets.obj
+build/Champion/Release/input.obj
+build/Champion/Release/item_definitions.obj
+build/Champion/Release/jsonconfig.obj
+build/Champion/Release/jsoncpp.obj
+build/Champion/Release/KeyValues.obj
+build/Champion/Release/kit_parser.obj
+build/Champion/Release/LockCursor.obj
+build/Champion/Release/main.obj
+build/Champion/Release/math.obj
+build/Champion/Release/menu.obj
+build/Champion/Release/netvars.obj
+build/Champion/Release/Notification.obj
+build/Champion/Release/options.obj
+build/Champion/Release/Player.obj
+build/Champion/Release/Recv.obj
+build/Champion/Release/render.obj
+build/Champion/Release/sdk.obj
+build/Champion/Release/skins.obj
+build/Champion/Release/SupressLists.obj
+build/Champion/Release/ui.obj
+build/Champion/Release/utils.obj
+build/Champion/Release/UtlBuffer.obj
+build/Champion/Release/UtlString.obj
+build/Champion/Release/Vector2D.obj
+build/Champion/Release/Vector4D.obj
+build/Champion/Release/vfunc_hook.obj
+build/Champion/Release/visuals.obj
+build/Champion/Release/VMatrix.obj
+CFG/legit mm.json
+CFG/others/skins.json
+dll/champion.dll
+dll/champion.iobj

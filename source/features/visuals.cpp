@@ -1096,22 +1096,27 @@ void Visuals::RenderItemEsp(C_BaseEntity* ent)
 	Render::Get().RenderText(itemstr, ImVec2((bbox.left + w * 0.5f) - sz.x * 0.5f, bbox.bottom + 1), 14.f, Color::White, false, false);
 }
 //--------------------------------------------------------------------------------
-void Visuals::ThirdPerson() {
+void Visuals::ThirdPerson() 
+{
 	if (!g_LocalPlayer)
 		return;
 
+	if (!g_Options.misc_thirdperson)
+		return;
+
 	static size_t lastTime = 0;
+	static bool enable;
 
 	if (GetAsyncKeyState(g_Options.misc_thirdperson_bind))
 	{
 		if (GetTickCount64() > lastTime) {
-			g_Options.misc_thirdperson = !g_Options.misc_thirdperson;
+			enable = !enable;
 
 			lastTime = GetTickCount64() + 650;
 		}
 	}
 
-	if (g_Options.misc_thirdperson && g_LocalPlayer->IsAlive())
+	if (enable && g_LocalPlayer->IsAlive())
 		g_Input->m_fCameraInThirdPerson = true;
 	else
 		g_Input->m_fCameraInThirdPerson = false;

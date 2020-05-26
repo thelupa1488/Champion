@@ -1,6 +1,6 @@
 #include <VMProtectSDK.h>
 
-#define ENABLE_VMP 
+//#define ENABLE_VMP 
 
 #ifdef ENABLE_VMP
 #define VMP_VIRTUAL(e) VMProtectBeginVirtualization(e);

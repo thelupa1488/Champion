@@ -18,7 +18,7 @@
 float side = 1.0f;
 float next_lby = 0.0f;
 
-void ApplyStickers(C_BaseCombatWeapon* pItem);
+//void ApplyStickers(C_BaseCombatWeapon* pItem);
 
 #include "../helpers/xorstr.h"
 #include <locale>

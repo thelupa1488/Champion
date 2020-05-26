@@ -47,7 +47,8 @@ float GetRealDistanceFOV(float distance, QAngle angle, QAngle viewangles) {
 //	cmd->mousedy = delta.pitch / (m_pitch * sens * zoomMultiplier);
 //}
 //--------------------------------------------------------------------------------
-float Aimbot::GetFovToPlayer(QAngle viewAngle, QAngle aimAngle) {
+float Aimbot::GetFovToPlayer(QAngle viewAngle, QAngle aimAngle) 
+{
 	QAngle delta = aimAngle - viewAngle;
 	Math::FixAngles(delta);
 	return sqrtf(powf(delta.pitch, 2.0f) + powf(delta.yaw, 2.0f));
@@ -233,8 +234,7 @@ C_BasePlayer* Aimbot::GetClosestPlayer(CUserCmd* cmd, int& bestBone) {
 		}
 		for (int bone = fromBone; bone <= toBone; bone++) {
 			eVecTarget = player->GetHitboxPos(bone);
-			//Math::VectorAngles(eVecTarget - pVecTarget, ang);
-			
+			//Math::VectorAngles(eVecTarget - pVecTarget, ang);	
 
 			ang = Math::CalcAngle(g_LocalPlayer->GetEyePos(), eVecTarget);
 

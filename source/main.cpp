@@ -22,6 +22,7 @@ auto CheckRemoteDebuggerPresentAPI()
 	CheckRemoteDebuggerPresent(GetCurrentProcess(), &bIsDbgPresent);
 	return bIsDbgPresent;
 }
+
 void lockcursor()
 {
 	if (Menu::Get().IsVisible()) {
