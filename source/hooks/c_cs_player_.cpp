@@ -30,8 +30,8 @@ void __fastcall C_BasePlayer_::hk_accumulate_layers(C_BasePlayer* player, uintpt
 
 QAngle* C_BasePlayer_::eye_angles(C_BasePlayer* player, uint32_t)
 {
-	static auto return_to_fire_bullet = Utils::PatternScan(GetModuleHandle(L"client_panorama.dll"), "8B 0D ? ? ? ? F3 0F 7E 00 8B 40 08 89 45 E4");
-	static auto return_to_set_first_person_viewangles = Utils::PatternScan(GetModuleHandle(L"client_panorama.dll"), "8B 5D 0C 8B 08 89 0B 8B 48 04 89 4B 04 B9");
+	static auto return_to_fire_bullet = Utils::PatternScan(GetModuleHandle(L"client.dll"), "8B 0D ? ? ? ? F3 0F 7E 00 8B 40 08 89 45 E4");
+	static auto return_to_set_first_person_viewangles = Utils::PatternScan(GetModuleHandle(L"client.dll"), "8B 5D 0C 8B 08 89 0B 8B 48 04 89 4B 04 B9");
 
 	if (player == g_LocalPlayer
 		&& g_EngineClient->IsInGame()
@@ -71,7 +71,7 @@ void __fastcall C_BasePlayer_::build_transformations(C_BasePlayer* player, uint3
 void prepare_animation(C_BasePlayer* local);
 int C_BasePlayer_::proxy_is_player(C_BasePlayer* player, void* return_address, void* eax)
 {
-	static const auto return_to_should_skip_animframe = Utils::PatternScan(GetModuleHandle(L"client_panorama.dll"), "84 C0 75 02 5F C3 8B 0D");
+	static const auto return_to_should_skip_animframe = Utils::PatternScan(GetModuleHandle(L"client.dll"), "84 C0 75 02 5F C3 8B 0D");
 
 	if (return_address != return_to_should_skip_animframe)
 		return 2;

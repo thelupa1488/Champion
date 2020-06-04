@@ -55,7 +55,7 @@ float Aimbot::GetFovToPlayer(QAngle viewAngle, QAngle aimAngle)
 }
 //--------------------------------------------------------------------------------
 bool Aimbot::IsLineGoesThroughSmoke(Vector vStartPos, Vector vEndPos) {
-	static auto LineGoesThroughSmokeFn = (bool(*)(Vector vStartPos, Vector vEndPos))Utils::PatternScan(GetModuleHandleA("client_panorama.dll"), "55 8B EC 83 EC 08 8B 15 ? ? ? ? 0F 57 C0");
+	static auto LineGoesThroughSmokeFn = (bool(*)(Vector vStartPos, Vector vEndPos))Utils::PatternScan(GetModuleHandleA("client.dll"), "55 8B EC 83 EC 08 8B 15 ? ? ? ? 0F 57 C0");
 	return LineGoesThroughSmokeFn(vStartPos, vEndPos);
 }
 //--------------------------------------------------------------------------------

@@ -349,7 +349,7 @@ std::optional<c_animation_system::animation*> c_animation_system::get_latest_fir
 void c_animation_system::update_player(C_BasePlayer* player)
 {
 	static auto& enable_bone_cache_invalidation = **reinterpret_cast<bool**>(
-		reinterpret_cast<uint32_t>(Utils::PatternScan(GetModuleHandle(L"client_panorama.dll"), "C6 05 ? ? ? ? ? 89 47 70")) + 2);
+		reinterpret_cast<uint32_t>(Utils::PatternScan(GetModuleHandle(L"client.dll"), "C6 05 ? ? ? ? ? 89 47 70")) + 2);
 
 	if (!player || player->IsDormant() || !player->IsAlive())
 		return;

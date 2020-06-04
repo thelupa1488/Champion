@@ -4,7 +4,7 @@
 #include "../features/animfixed.h"
 //void resolve(C_BasePlayer* player);
 extern bool sendpacket;
-bool* disablePostProcessing = *(bool**)(Utils::PatternScan(GetModuleHandle(L"client_panorama.dll"), "83 EC 4C 80 3D") + 5);
+bool* disablePostProcessing = *(bool**)(Utils::PatternScan(GetModuleHandle(L"client.dll"), "83 EC 4C 80 3D") + 5);
 
 extern QAngle vangle;
 extern matrix3x4_t m_real_matrix[128];
@@ -120,8 +120,8 @@ bool changeName(bool reconnect, const char* newName, float delay) noexcept;
 void __stdcall Hooks::hkSuppressLists(int a2, bool a3) {
 	static auto ofunc = partition_hook.get_original< SuppressLists >(16);
 	static float SpawnTime = 0.0f;
-	static auto OnRenderStart_Return = Utils::PatternScan(GetModuleHandleA("client_panorama.dll"), "FF 50 40 8B 1D ? ? ? ?") + 0x3;
-	static auto FrameNetUpdateEnd_Return = Utils::PatternScan(GetModuleHandleA("client_panorama.dll"), "5F 5E 5D C2 04 00 83 3D ? ? ? ? ?");
+	static auto OnRenderStart_Return = Utils::PatternScan(GetModuleHandleA("client.dll"), "FF 50 40 8B 1D ? ? ? ?") + 0x3;
+	static auto FrameNetUpdateEnd_Return = Utils::PatternScan(GetModuleHandleA("client.dll"), "5F 5E 5D C2 04 00 83 3D ? ? ? ? ?");
 
 	if (g_LocalPlayer && g_LocalPlayer->IsAlive()) 
 	{
