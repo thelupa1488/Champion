@@ -910,7 +910,7 @@ void nosmoke()
 		IMaterial* mat = g_MatSystem->FindMaterial(material_name, TEXTURE_GROUP_OTHER);
 		mat->SetMaterialVarFlag(MATERIAL_VAR_WIREFRAME, true);
 	}
-	//static auto shit = *(DWORD*)(Utils::PatternScan(GetModuleHandleA("client_panorama.dll"), "55 8B EC 83 EC 08 8B 15 ? ? ? ? 0F 57 C0") + 0x8);
+	//static auto shit = *(DWORD*)(Utils::PatternScan(GetModuleHandleA("client.dll"), "55 8B EC 83 EC 08 8B 15 ? ? ? ? 0F 57 C0") + 0x8);
 	//if(shit)
 	//	if (g_Options.nosmoke)
 	//		*(int*)(shit) = 0;

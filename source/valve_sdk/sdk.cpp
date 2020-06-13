@@ -112,7 +112,7 @@ namespace Interfaces
     void Initialize()
     {
         auto engineFactory    = "engine.dll";
-		auto clientFactory 	  = "client_panorama.dll";
+		auto clientFactory 	  = "client.dll";
 
         auto valveStdFactory  = "vstdlib.dll";
         auto vguiFactory      = "vguimatsurface.dll";
@@ -147,7 +147,7 @@ namespace Interfaces
 
 		
 
-        auto client = GetModuleHandleW(L"client_panorama.dll");
+        auto client = GetModuleHandleW(L"client.dll");
         auto engine = GetModuleHandleW(L"engine.dll");
 		auto dx9api = GetModuleHandleW(L"shaderapidx9.dll");
 

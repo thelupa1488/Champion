@@ -23,7 +23,7 @@ namespace EnginePred {
 		}
 
 		if (!_prediction_seed || !_prediction_player) {
-			auto client = GetModuleHandle(TEXT("client_panorama.dll"));
+			auto client = GetModuleHandle(TEXT("client.dll"));
 
 			_prediction_seed = *(int32_t * *)(Utils::PatternScan(client, "8B 0D ? ? ? ? BA ? ? ? ? E8 ? ? ? ? 83 C4 04") + 0x2);
 			_prediction_player = (C_BasePlayer * **)(Utils::PatternScan(client, "89 35 ? ? ? ? F3 0F 10 48 20") + 0x2);

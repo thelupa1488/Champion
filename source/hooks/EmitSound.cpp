@@ -5,7 +5,7 @@ void AutoAccept()
 {
 	if (g_Options.misc_autoaccept && !g_EngineClient->IsInGame() && !g_EngineClient->IsConnected())
 	{
-		static auto SetLocalPlayerReadyFn = reinterpret_cast<bool(__stdcall*)(const char*)>(Utils::PatternScan(GetModuleHandleA(("client_panorama.dll")), ("55 8B EC 83 E4 F8 8B 4D 08 BA ? ? ? ? E8 ? ? ? ? 85 C0 75 12")));
+		static auto SetLocalPlayerReadyFn = reinterpret_cast<bool(__stdcall*)(const char*)>(Utils::PatternScan(GetModuleHandleA(("client.dll")), ("55 8B EC 83 E4 F8 8B 4D 08 BA ? ? ? ? E8 ? ? ? ? 85 C0 75 12")));
 
 		if (SetLocalPlayerReadyFn) 
 		{

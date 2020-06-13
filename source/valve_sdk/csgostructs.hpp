@@ -305,7 +305,7 @@ public:
 	{
 		typedef void(__thiscall* Fn)(IKContext* pIK, const studiohdr_t* pStudioHdr, const QAngle& absAngles, const Vector& adjOrigin, const float curTime, int ikCounter, int boneMask);
 		static Fn fn = nullptr;
-		if (!fn) fn = reinterpret_cast<Fn>(Utils::PatternScan(GetModuleHandleA("client_panorama.dll"),"55 8B EC 83 EC 08 8B 45 08 56 57 8B F9 8D"));
+		if (!fn) fn = reinterpret_cast<Fn>(Utils::PatternScan(GetModuleHandleA("client.dll"),"55 8B EC 83 EC 08 8B 45 08 56 57 8B F9 8D"));
 		return fn(this, pStudioHdr, absAngles, adjOrigin, curTime, ikCounter, boneMask);
 	}
 
@@ -335,7 +335,7 @@ public:
 
 	static uint32_t* get_vtable()
 	{
-		static const auto table = reinterpret_cast<uint32_t>(Utils::PatternScan(GetModuleHandle(L"client_panorama.dll"),
+		static const auto table = reinterpret_cast<uint32_t>(Utils::PatternScan(GetModuleHandle(L"client.dll"),
 			"55 8B EC 83 E4 F8 83 EC 18 56 57 8B F9 89 7C 24 0C")) + 0x47;
 		return *reinterpret_cast<uint32_t * *>(table);
 	}
@@ -468,7 +468,7 @@ public:
 	}
 	void invalidate_physics_recursive(int32_t flags) {
 		static const auto invalidate_physics_recursive = reinterpret_cast<void(__thiscall*)(C_BaseEntity*, int32_t)>(
-			Utils::PatternScan(GetModuleHandle(L"client_panorama.dll"), "55 8B EC 83 E4 F8 83 EC 0C 53 8B 5D 08 8B C3 56"));
+			Utils::PatternScan(GetModuleHandle(L"client.dll"), "55 8B EC 83 E4 F8 83 EC 0C 53 8B 5D 08 8B C3 56"));
 		invalidate_physics_recursive(this, flags);
 	}
 
@@ -505,7 +505,7 @@ public:
 	void SetOrigin(Vector origin)
 	{
 		using SetAbsOriginFn = void(__thiscall*)(void*, const Vector & origin);
-		static SetAbsOriginFn SetAbsOrigin = (SetAbsOriginFn)Utils::PatternScan(GetModuleHandleA("client_panorama.dll"), "55 8B EC 83 E4 F8 51 53 56 57 8B F1 E8");
+		static SetAbsOriginFn SetAbsOrigin = (SetAbsOriginFn)Utils::PatternScan(GetModuleHandleA("client.dll"), "55 8B EC 83 E4 F8 51 53 56 57 8B F1 E8");
 
 		SetAbsOrigin(this, origin);
 	}
@@ -513,7 +513,7 @@ public:
 
 	void set_abs_angles(QAngle angle) {
 		static auto set_abs_angles_fn = reinterpret_cast<void(__thiscall*)(C_BaseEntity*, const QAngle&)>(
-			Utils::PatternScan(GetModuleHandleA("client_panorama.dll"), "55 8B EC 83 E4 F8 83 EC 64 53 56 57 8B F1 E8"));
+			Utils::PatternScan(GetModuleHandleA("client.dll"), "55 8B EC 83 E4 F8 83 EC 64 53 56 57 8B F1 E8"));
 		set_abs_angles_fn(this, angle);
 	}
 

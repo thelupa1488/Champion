@@ -31,7 +31,7 @@ float next_lby = 0.0f;
 
 void FakePrime()
 {
-	static auto prime = Utils::PatternScan(GetModuleHandleA("client_panorama.dll"), "A1 ? ? ? ? 85 C0 75 07 83 F8 05 0F 94 C0 C3");
+	static auto prime = Utils::PatternScan(GetModuleHandleA("client.dll"), "A1 ? ? ? ? 85 C0 75 07 83 F8 05 0F 94 C0 C3");
 	DWORD old_protect;
 	VirtualProtect(prime, 5, PAGE_EXECUTE_READWRITE, &old_protect);
 	{
@@ -113,8 +113,8 @@ namespace Hooks
 		if(!g_EngineClient->IsInGame())
 			return org_f();
 
-		static auto ptr_accumulate_layers = Utils::PatternScan(GetModuleHandleA("client_panorama.dll"), ("84 C0 75 0D F6 87"));
-		static auto setupvelocity_call = reinterpret_cast<void*> (Utils::PatternScan(GetModuleHandleA("client_panorama.dll"),
+		static auto ptr_accumulate_layers = Utils::PatternScan(GetModuleHandleA("client.dll"), ("84 C0 75 0D F6 87"));
+		static auto setupvelocity_call = reinterpret_cast<void*> (Utils::PatternScan(GetModuleHandleA("client.dll"),
 			("84 C0 75 38 8B 0D ? ? ? ? 8B 01 8B 80 ? ? ? ? FF D0")));
 
 		if (reinterpret_cast<uintptr_t> (_ReturnAddress()) == reinterpret_cast<uintptr_t> (ptr_accumulate_layers) && c_animation_system::Get().enable_bones)
@@ -144,7 +144,7 @@ namespace Hooks
 
 		static auto pGetModelName = findmdl_hook.get_original<o_MdlName>(18);
 
-		static auto uiGetModelNameReturnAddress = (uintptr_t)Utils::PatternScan(GetModuleHandleA("client_panorama.dll"), "EB 23 8B 7D FC 8B CF 53 FF 75 08");
+		static auto uiGetModelNameReturnAddress = (uintptr_t)Utils::PatternScan(GetModuleHandleA("client.dll"), "EB 23 8B 7D FC 8B CF 53 FF 75 08");
 
 		__asm
 		{
@@ -252,7 +252,7 @@ namespace Hooks
 	bool AddCCSPlayerListener(IGameEventListener2* listener, const char* name, const bool serverside)
 	{
 		static const auto return_to_c_csplayer_ctor = reinterpret_cast<void*>(
-			reinterpret_cast<uint32_t>(Utils::PatternScan(GetModuleHandle(L"client_panorama.dll"), "FF 50 0C C7 87")) + 3);
+			reinterpret_cast<uint32_t>(Utils::PatternScan(GetModuleHandle(L"client.dll"), "FF 50 0C C7 87")) + 3);
 
 		static auto _add_listener = gameevents_hook.get_original<add_listener_t>(3);
 
@@ -270,7 +270,7 @@ namespace Hooks
 
 	bool __fastcall hkSvCheatsGetBool(PVOID pConVar, void* edx)
 	{
-		static auto dwCAM_Think = Utils::PatternScan(GetModuleHandleW(L"client_panorama.dll"), "85 C0 75 30 38 86");
+		static auto dwCAM_Think = Utils::PatternScan(GetModuleHandleW(L"client.dll"), "85 C0 75 30 38 86");
 		static auto ofunc = sv_cheats.get_original<bool(__thiscall *)(PVOID)>(13);
 		if (!ofunc)
 			return false;

@@ -37,7 +37,7 @@ void CAutoWall::ClipTraceToPlayers(const Vector& absStart, const Vector absEnd, 
 {
 	C_BaseCombatWeapon* weapon =g_LocalPlayer->m_hActiveWeapon();
 
-	static DWORD dwAddress = (DWORD)Utils::PatternScan(GetModuleHandleA("client_panorama.dll"), "53 8B DC 83 EC 08 83 E4 F0 83 C4 04 55 8B 6B 04 89 6C 24 04 8B EC 81 EC ? ? ? ? 8B 43 10");
+	static DWORD dwAddress = (DWORD)Utils::PatternScan(GetModuleHandleA("client.dll"), "53 8B DC 83 EC 08 83 E4 F0 83 C4 04 55 8B 6B 04 89 6C 24 04 8B EC 81 EC ? ? ? ? 8B 43 10");
 
 	if (!dwAddress)
 		return;

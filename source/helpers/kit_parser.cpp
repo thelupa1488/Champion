@@ -96,7 +96,7 @@ auto initialize_kits() -> void
 	// push    dword ptr [esi+0Ch]
 	// lea     ecx, [eax+4]
 	// call    CEconItemSchema::GetPaintKitDefinition
-	const auto sig_address = Utils::PatternScan(GetModuleHandle(L"client_panorama.dll"), "E8 ? ? ? ? FF 76 0C 8D 48 04 E8");
+	const auto sig_address = Utils::PatternScan(GetModuleHandle(L"client.dll"), "E8 ? ? ? ? FF 76 0C 8D 48 04 E8");
 	// Skip the opcode, read rel32 address
 	const auto item_system_offset = *reinterpret_cast<std::int32_t*>(sig_address + 1);
 	// Add the offset to the end of the instruction
@@ -164,7 +164,7 @@ auto initialize_kits() -> void
 
 	// Dump sticker kits
 	/*{
-		const auto sticker_sig = Utils::PatternScan(GetModuleHandle(L"client_panorama.dll"), "53 8D 48 04 E8 ? ? ? ? 8B 4D 10");
+		const auto sticker_sig = Utils::PatternScan(GetModuleHandle(L"client.dll"), "53 8D 48 04 E8 ? ? ? ? 8B 4D 10");
 
 		// Skip the opcode, read rel32 address
 		const auto get_sticker_kit_definition_offset = *reinterpret_cast<std::intptr_t*>(sticker_sig + 1);
